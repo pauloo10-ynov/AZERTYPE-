@@ -74,8 +74,9 @@ function lancerJeu () {
 
     // cette étape permet d'ajouter un évènement lorsqu'on clique sur le bouton (envoyer)
     buttonValidation.addEventListener("click", () => {
-        console.log(inputText.value)
-         if (inputText.value === listeProposition[i]) {
+        const saisie = inputText.value.trim()
+        console.log(saisie)
+         if (saisie === listeProposition[i]) {
             score++
         }
         i++
@@ -93,12 +94,13 @@ function lancerJeu () {
     let listeBtnRadio = document.querySelectorAll(".optionSource input")
     for (let j = 0; j <listeBtnRadio.length; j++) {
         listeBtnRadio[j].addEventListener("change", (event) => {
+            i = 0
         if (event.target.value === "1") {
             listeProposition = listeMots
         } else {
             listeProposition = listePhrase
         }
-        afficherProposition(listeProposition[j])
+        afficherProposition(listeProposition[0])
         })
     }
 
@@ -111,4 +113,3 @@ function lancerJeu () {
     })
     afficherResultat(score, i)
 }
-
