@@ -74,8 +74,9 @@ function lancerJeu () {
 
     // cette étape permet d'ajouter un évènement lorsqu'on clique sur le bouton (envoyer)
     buttonValidation.addEventListener("click", () => {
+        if (i >= listeProposition.length) return
+
         const saisie = inputText.value.trim()
-        console.log(saisie)
          if (saisie === listeProposition[i]) {
             score++
         }
